@@ -1,0 +1,26 @@
+{
+    "name": "gamerbet/replayhandler",
+    "description": "Elogank Redis Publisher ReplayHandler",
+    "keywords": [
+        "Elogank", "Redis", "Publisher"
+    ],
+    "homepage": "https://github.com/GamerBet/ReplayHandler",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Cory Kennedy-Darby",
+            "email": "ckdarby@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "predis/predis": "~1.0"
+    },
+    "support": {
+        "issues": "https://github.com/GamerBet/ReplayHandler/issues",
+        "source": "https://github.com/GamerBet/ReplayHandler"
+    },
+    "autoload": {
+        "psr-4": { "ReplayHandler\\": "src/" }
+    }
+}
