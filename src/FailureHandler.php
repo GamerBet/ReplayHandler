@@ -2,9 +2,10 @@
 
 namespace ReplayHandler;
 
-use EloGank\Component\Command\Handler;
+use EloGank\Component\Command\Handler\FailureHandlerInterface;
+use EloGank\Replay\ReplayInterface;
 
-class SuccessHandler implements SuccessHandlerInterface
+class FailureHandler extends ReplayHandler implements FailureHandlerInterface
 {
 
     /**
@@ -18,7 +19,8 @@ class SuccessHandler implements SuccessHandlerInterface
      */
     public function onFailure($region, $gameId, $encryptionKey, $replayFolderPath, \Exception $exception)
     {
-        
+        //Well someone f'ed up
+        //TODO publish to channel
     }
 
 }
