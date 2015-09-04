@@ -9,10 +9,10 @@ class ReplayHandler
 
     public $redisClient;
 
-    public function __constructor()
+    public function __construct()
     {
 
-        $this->redisClient = $client = new Predis\Client(array(
+        $this->redisClient = new Predis\Client(array(
             'scheme'   => Config::get('redis.scheme'),
             'host'     => Config::get('redis.host'),
             'password' => Config::get('redis.password'),
