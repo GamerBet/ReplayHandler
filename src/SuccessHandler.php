@@ -2,9 +2,11 @@
 
 namespace ReplayHandler;
 
-use EloGank\Component\Command\Handler;
+use EloGank\Component\Command\Handler\SuccessHandlerInterface;
+use EloGank\Replay\ReplayInterface;
+use EloGank\Component\Configuration\Config;
 
-class SuccessHandler implements SuccessHandlerInterface
+class SuccessHandler extends ReplayHandler implements SuccessHandlerInterface
 {
 
     /**
@@ -16,5 +18,11 @@ class SuccessHandler implements SuccessHandlerInterface
     public function onSuccess(ReplayInterface $replay, $replayFolderPath)
     {
 
+        $payload = [
+            'foreignId' => (string)$replay->getGameId(),
+            'region' => (string)$replay->getRegion(),
+        ];
+
+        $this->redisClient->publish("/interestmanager/extract", json_encode($payload));
     }
 }
