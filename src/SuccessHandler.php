@@ -20,7 +20,7 @@ class SuccessHandler extends ReplayHandler implements SuccessHandlerInterface
 
         $payload = [
             'foreignId' => (string)$replay->getGameId(),
-            'region' => (string)$replay->getRegion(),
+            'platformId' => (string)$replay->getRegion(),
         ];
 
         $this->redisClient->publish("/interestmanager/extract", json_encode($payload));
