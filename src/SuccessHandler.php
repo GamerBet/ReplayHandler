@@ -4,6 +4,7 @@ namespace ReplayHandler;
 
 use EloGank\Component\Command\Handler\SuccessHandlerInterface;
 use EloGank\Replay\ReplayInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use EloGank\Component\Configuration\Config;
 
 class SuccessHandler extends ReplayHandler implements SuccessHandlerInterface
@@ -15,7 +16,7 @@ class SuccessHandler extends ReplayHandler implements SuccessHandlerInterface
      * @param ReplayInterface $replay
      * @param string          $replayFolderPath
      */
-    public function onSuccess(ReplayInterface $replay, $replayFolderPath)
+    public function onSuccess(OutputInterface $output, ReplayInterface $replay, $replayFolderPath)
     {
 
         $payload = [
