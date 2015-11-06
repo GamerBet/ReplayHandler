@@ -5,6 +5,7 @@ namespace ReplayHandler;
 use EloGank\Component\Command\Handler\FailureHandlerInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use EloGank\Replay\ReplayInterface;
+use EloGank\Replay\Downloader\Exception\ReplayFolderAlreadyExistsException;
 
 
 class FailureHandler extends ReplayHandler implements FailureHandlerInterface
