@@ -24,6 +24,8 @@ class SuccessHandler extends ReplayHandler implements SuccessHandlerInterface
             'platformId' => (string)$replay->getRegion(),
         ];
 
+        $this->statsdClient->increment("replay.onSuccess");
+
         $this->redisClient->publish("/interestmanager/extract", json_encode($payload));
     }
 }

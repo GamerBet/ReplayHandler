@@ -8,6 +8,7 @@ class ReplayHandler
 {
 
     public $redisClient;
+    public $statsdClient;
 
     public function __construct()
     {
@@ -18,6 +19,10 @@ class ReplayHandler
             'password' => Config::get('redis.password'),
             'port'     => Config::get('redis.port')
         ));
+
+        $connection = new \Domnikl\Statsd\Connection\UdpSocket(Config::get('statsd.host'), Config::get('statsd.port'));
+        $this->statsdClient = new \Domnikl\Statsd\Client($connection, Config::get('statsd.namespace'));
+
 
     }
 }
